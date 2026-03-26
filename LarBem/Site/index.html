@@ -255,27 +255,452 @@
 
 <!-- ========================================================== SÉTIMA SEÇÃO DO SITE =========================================================== -->
 
+<!-- Contact section styles -->
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<div class="Nossos contatos"  
-  <h1></h1><h1 class="Nossos-Contatos">Contatos </h1>
-  <div class="contatos-grid">
-    <div class="contato-item">
-      <h3>Endereço</h3>
-      <p>Rua General Mena Barreto, 97, Recife, Brazil 50731060</p>
+    body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; 
+  background-image: url('imagens/fundo5.jpg');
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: fixed; 
+    }
+    
+    .contact-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+      gap: 60px;
+    }
+
+    
+    .contact-info {
+      flex: 0 0 auto;
+      max-width: 360px;
+    }
+
+    .contact-info h1 {
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: #1a1a1a;
+      margin-bottom: 36px;
+    }
+
+    .contact-info h1 span {
+      color: #8b5cf6; 
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+    }
+
+    .info-list .icon {
+      width: 38px;
+      height: 38px;
+      border: 2px solid #1a1a1a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-list .icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #1a1a1a;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .social-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-row a {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color .2s;
+    }
+
+    .social-row a:hover { color: #8b5cf6; }
+
+    .sep {
+      color: #999;
+    }
+
+    
+    .contact-card {
+      background: #f9c8ce;
+      border-radius: 28px;
+      padding: 36px 32px;
+      width: 340px;
+      box-shadow: 8px 8px 0 #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .social-link {
+       display: flex;        
+       align-items: center;  
+       gap: 12px;            
+       color: #1a1a1a;
+       text-decoration: none;        
+       text-decoration: none; 
+    } 
+    .contact-card input,
+    .contact-card textarea {
+      width: 100%;
+      background: #fff0f2;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      color: #1a1a1a;
+      outline: none;
+      resize: none;
+      transition: box-shadow .2s;
+    }
+
+    .contact-card input::placeholder,
+    .contact-card textarea::placeholder {
+      color: #aaa;
+    }
+
+    .contact-card input:focus,
+    .contact-card textarea:focus {
+      box-shadow: 0 0 0 2px #8b5cf6;
+    }
+
+    .contact-card textarea {
+      height: 110px;
+    }
+
+    .contact-card button {
+      margin-top: 4px;
+      background: #1a1a1a;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+    }
+
+    .contact-card button:hover  { background: #8b5cf6; }
+    .contact-card button:active { transform: scale(.97); }
+
+    
+    .contact-card input.error,
+    .contact-card textarea.error {
+      box-shadow: 0 0 0 2px #e53e3e;
+    }
+
+    .error-msg {
+      font-size: 0.75rem;
+      color: #e53e3e;
+      margin-top: -8px;
+      padding-left: 4px;
+      display: none;
+    }
+
+    
+    #toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #1a1a1a;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s, transform .3s;
+      z-index: 999;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    #toast.success { background: #22c55e; }
+    #toast.error-toast { background: #e53e3e; }
+
+    
+    .btn-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+  border-top: 1px solid #ccc;
+  padding: 22px 40px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: #555;
+  line-height: 1.7;
+  background-image: url('imagens/fundo5.jpg');
+  background-size: auto;
+  background-repeat: repeat;
+}
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 720px) {
+      .contact-section {
+        flex-direction: column;
+        padding: 40px 24px;
+        gap: 40px;
+      }
+      .contact-card { width: 100%; }
+    }
+</style>
+
+  <section class="contact-section">
+
+    <!-- LEFT -->
+    <div class="contact-info">
+      <h1>Nossos<br>Contatos<span>.</span></h1>
+
+      <ul class="info-list">
+
+        <!-- Links rede sociais -->
+        <li>
+  <a href="https://www.facebook.com/larbemoficial/"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="social-link">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" aria-label="Facebook icon">
+        <path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/>
+      </svg>
+    </div>
+    facebook
+  </a>
+</li>
+        <li>
+  <a href="https://www.instagram.com/larbemoficial/"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="social-link">
+
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+           aria-label="Instagram icon">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+      </svg>
     </div>
 
-    <div class="contato-item">
-      <h3>Telefone</h3>
-      <p>(81) 3225-0151</p>
+    instagram
+
+  </a>
+</li>
+
+        <!-- Endereço -->
+        <li>
+  <a href="https://www.google.com/maps/search/Rua+General+Mena+Barreto,+97,+Recife"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="social-link">
+
+    <div class="icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
     </div>
 
-    <div class="contato-item">
-      <h3>Email</h3>
-      <p>
+    Rua General Mena Barreto, 97, Recife, Brazil 50731060
 
+  </a>
+</li>
 
+        <!-- Telefone -->
+        <li>
+          <div class="icon">
+            <!-- phone -->
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.08 4.18 2 2 0 0 1 5.09 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.71 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 5 5l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.58 2.81.71A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <span>(81) 3225-0151</span>
+        </li>
 
+        <!-- Email -->
+        <li>
+          <div class="icon">
+            
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </div>
+          <span>larbemelizabeth@gmail.com</span>
+        </li>
 
+      </ul>
+    </div>
+
+    
+    <div class="contact-card">
+      <input id="nome"     type="text"  placeholder="Seu nome (obrigatório)" />
+      <span  class="error-msg" id="erro-nome">Por favor, informe seu nome.</span>
+
+      <input id="email"    type="email" placeholder="Seu e-mail (obrigatório)" />
+      <span  class="error-msg" id="erro-email">Informe um e-mail válido.</span>
+
+      <input id="assunto"  type="text"  placeholder="Assunto (obrigatório)" />
+      <span  class="error-msg" id="erro-assunto">Por favor, informe o assunto.</span>
+
+      <textarea id="mensagem" placeholder="Sua mensagem (obrigatório)"></textarea>
+      <span  class="error-msg" id="erro-mensagem">Por favor, escreva sua mensagem.</span>
+
+      <button id="btn-enviar" type="button">
+        <span class="btn-inner">
+          <span class="spinner" id="spinner"></span>
+          <span id="btn-label">Enviar mensagem</span>
+        </span>
+      </button>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>Feito pela Instituição Lar Bem</p>
+    <p>© 2026 Instituição Lar Bem – Todos os direitos reservados</p>
+  </footer>
+
+  <div id="toast"></div>
+
+  <script>
+    
+    function showToast(msg, type = 'success') {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'show ' + type;
+      setTimeout(() => { t.className = ''; }, 3500);
+    }
+
+    function setError(fieldId, errorId, show) {
+      const field = document.getElementById(fieldId);
+      const msg   = document.getElementById(errorId);
+      if (show) {
+        field.classList.add('error');
+        msg.style.display = 'block';
+      } else {
+        field.classList.remove('error');
+        msg.style.display = 'none';
+      }
+    }
+
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    
+    ['nome', 'email', 'assunto', 'mensagem'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => {
+        document.getElementById(id).classList.remove('error');
+        document.getElementById('erro-' + id).style.display = 'none';
+      });
+    });
+
+    
+    document.getElementById('btn-enviar').addEventListener('click', async () => {
+      const nome     = document.getElementById('nome').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const assunto  = document.getElementById('assunto').value.trim();
+      const mensagem = document.getElementById('mensagem').value.trim();
+
+      
+      let hasError = false;
+      setError('nome',     'erro-nome',     !nome);
+      setError('email',    'erro-email',    !isValidEmail(email));
+      setError('assunto',  'erro-assunto',  !assunto);
+      setError('mensagem', 'erro-mensagem', !mensagem);
+
+      if (!nome || !isValidEmail(email) || !assunto || !mensagem) {
+        showToast('Preencha todos os campos corretamente.', 'error-toast');
+        return;
+      }
+
+     
+      const btn     = document.getElementById('btn-enviar');
+      const spinner = document.getElementById('spinner');
+      const label   = document.getElementById('btn-label');
+      btn.disabled      = true;
+      spinner.style.display = 'block';
+      label.textContent = 'Enviando…';
+
+      try {
+        
+        const response = await fetch('https://formspree.io/f/xykbyevp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ nome, email, assunto, mensagem })
+        });
+
+        if (response.ok) {
+          showToast('✅ Mensagem enviada com sucesso!', 'success');
+          
+          ['nome', 'email', 'assunto', 'mensagem'].forEach(id => {
+            document.getElementById(id).value = '';
+          });
+        } else {
+          throw new Error('Erro na resposta do servidor');
+        }
+      } catch (err) {
+        showToast('❌ Erro ao enviar. Tente novamente.', 'error-toast');
+      } finally {
+        btn.disabled          = false;
+        spinner.style.display = 'none';
+        label.textContent     = 'Enviar mensagem';
+      }
+    });
+  </script>
 
 </body>
 
