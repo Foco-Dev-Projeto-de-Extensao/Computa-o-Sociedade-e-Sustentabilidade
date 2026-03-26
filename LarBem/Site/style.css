@@ -302,30 +302,33 @@ body {
   background-color: #FDF5E6;
   height: 75px; 
   width: 100%;
-  border-radius: 50px; /* bordas arredondadas */
-  border: 3px solid #111; /* borda grossa e preta */
+  border-radius: 50px;
+  border: 3px solid #111;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 40px;
   
-  /* A SOMBRA DO BOTÃO */
-  box-shadow: 6px 6px 0px #111; 
+  /* Remove o sublinhado do link */
+  text-decoration: none; 
+  /*Garante que o link preencha o espaço */
+  display: flex; 
 
+  box-shadow: 6px 6px 0px #111; 
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
+
 .servico-item:hover p {
-  color: #fff; /* Muda a cor do texto para branco no hover */
-  transition: color 0.2s ease; /* Deixa a mudança de cor suave */
+  color: #fff;
+  transition: color 0.2s ease;
 }
 
-/* Efeito de interação para os cards de serviço */
 .servico-item:hover {
-  transform: translate(-3px, -3px); /* Sobe levemente como o botão */
-  box-shadow: 9px 9px 0px #111; /* Sombra*/
-  background-color: #ff5757; /*cor quando passa o mose*/
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px #111;
+  background-color: #ff5757;
 }
 
 .servico-item p {
@@ -333,7 +336,15 @@ body {
   font-weight: 700; 
   color: #111;
   text-align: center;
+  margin: 0; /*evitar deslocamentos do texto */
 }
+
+.servico-item:active {
+  transform: translate(3px, 3px); /* Ele "desce" na direção da sombra */
+  box-shadow: 2px 2px 0px #111;   /* A sombra diminui */
+}
+
+
 
 
 /*----------------------------------------------------------------------- QUARTA SEÇÃO EM BREVE AQUI.... ---------------------------------------*/
@@ -514,6 +525,14 @@ body {
   color: #fff;
 }
 
+/* Efeito de clique (o botão "afunda") */
+.btn-doacao:active {
+  transform: translate(3px, 3px) scale(1.02); /* Desce em direção à sombra */
+  box-shadow: 2px 2px 0px #111;              /* A sombra diminui */
+  transition: all 0.1s;                      
+}
+
+
 /*----------------------------------------------------------------------- SEXTA SEÇÃO ---------------------------------------------------------*/
 
 
@@ -620,5 +639,5 @@ body {
   background: url(imagens/fundo5.jpg);
 }
 
-/*----------------------------------------------------------------------- SEXTA SEÇÃO ---------------------------------------------------------*/
+/*----------------------------------------------------------------------- SÉTIMA SEÇÃO ---------------------------------------------------------*/
 

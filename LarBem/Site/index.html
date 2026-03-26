@@ -114,26 +114,33 @@
         um ambiente seguro, acolhedor e propício ao desenvolvimento 
         de cada menina atendida.
       </p>
+
+
     </div>
+
+
+    
 
     <!-- Lado Direito: Lista de Cards -->
 
-    <div class="servicos-lista">
-      <div class="servico-item">
-        <p>Texto do serviço 01 aqui...</p>
-      </div>
-    <div class="servico-item">
-        <p>Texto do serviço 02 aqui...</p>
-    </div>
-    <div class="servico-item">
-      <p>Texto do serviço 03 aqui...</p>
-    </div>
-    <div class="servico-item">
-      <p>Texto do serviço 04 aqui...</p>
-    </div>
-    </div>
+    <div class="servicos-lista">                         <!-- essa parte do java é pro botao nao executar ação nenhuma... -->
+  <a href="javascript:void(0)" class="servico-item">
+    <p>Texto do serviço 01 aqui...</p>
+  </a>
 
-    
+  <a href="javascript:void(0)" class="servico-item">
+    <p>Texto do serviço 02 aqui...</p>
+  </a>
+
+  <a href="javascript:void(0)" class="servico-item">
+    <p>Texto do serviço 03 aqui...</p>
+  </a>
+
+  <a href="javascript:void(0)" class="servico-item">
+    <p>Texto do serviço 04 aqui...</p>
+  </a>
+</div>
+
 
   </div>
 </section>
@@ -204,7 +211,7 @@
         Escolha os itens que não utiliza mais, garantindo que estejam limpos, conservados e em condições de uso, e entre em contato conosco para realizar a doação.
       </p>
 
-      <a href="#" class="btn-doacao">Faça sua Doação</a>
+      <a href="javascript:void(0)" class="btn-doacao">Faça sua Doação</a>
     </div>
 
   </div>
@@ -264,7 +271,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column; 
-  background-image: url('imagens/fundo5.jpg');
   background-size: auto;
   background-repeat: repeat;
   background-attachment: fixed; 
@@ -615,7 +621,7 @@
 
   <div id="toast"></div>
 
-  <script>
+  <script>                                // MEU DEUS JS DO NADAAA
     
     function showToast(msg, type = 'success') {
       const t = document.getElementById('toast');
