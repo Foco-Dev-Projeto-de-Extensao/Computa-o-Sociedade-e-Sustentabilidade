@@ -347,7 +347,7 @@ body {
 
 
 
-/*----------------------------------------------------------------------- QUARTA SEÇÃO EM BREVE AQUI.... ---------------------------------------*/
+/*----------------------------------------------------------------------- QUARTA SEÇÃO ----------------------------------------------------------*/
 /* FAIXA ANIMADA */
 .marquee-banner {
   width: 100%;
@@ -379,37 +379,44 @@ body {
 
 
 .secao-nossa-loja {
-  background-color: #9055c8; 
-  display: flex;
-  justify-content: flex-end; 
-  align-items: center;       
+  background-color: #9055c8;
   padding: 80px 10%;
   min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* container interno igual ao .doacao-container */
+.secao-nossa-loja-inner {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .bloco-texto {
-  max-width: 450px;         
-  text-align: right;          
+  max-width: 450px;
+  text-align: right;
+  color: white;
 }
 
 .bloco-texto h1 {
-  font-size: 110px;          
+  font-size: clamp(52px, 8vw, 110px); /* se adapta igual ao resto */
   font-weight: 800;
-  line-height: 0.85;         
-  letter-spacing: -5px;      
+  line-height: 0.85;
+  letter-spacing: -5px;
   margin-bottom: 30px;
 }
 
 .bloco-texto p {
-  font-size: 22px;           
+  font-size: clamp(16px, 1.5vw, 22px); /* idem */
   line-height: 1.4;
   font-weight: 500;
 }
 
-.bloco-texto{
-  color: white;
-}
-.bloco-texto span{
+.bloco-texto span {
   color: #ff5757;
 }
 
