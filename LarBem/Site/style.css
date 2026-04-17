@@ -35,7 +35,7 @@ body {
   border-radius: 50px;
   border: 3px solid #111;
   font-weight: 700;
-  text-transform: lowercase;
+  text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 0.5px;
   white-space: nowrap;

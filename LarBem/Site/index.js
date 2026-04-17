@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
     doacaoInfo.appendChild(lojaClone);
   }
 
-  var data = [
-    { src: "imagens/Roupas.jpeg", alt: "Roupas", label: "roupas" },
-    { src: "imagens/Sapatos.jpeg", alt: "Sapatos", label: "sapatos" },
-    { src: "imagens/Acessorios.jpeg", alt: "Acessorios", label: "acessorios" },
-    { src: "imagens/Brinquedos.jpeg", alt: "Brinquedos", label: "brinquedos" }
+ var data = [
+    { src: "imagens/roupa.jpg", alt: "Roupas", label: "roupas" },
+    { src: "imagens/tenis.jpg", alt: "Calçados", label: "calçados" },
+    { src: "imagens/acessorio.jpg", alt: "Acessórios", label: "acessorios" },
+    { src: "imagens/brinquedo.jpg", alt: "Brinquedos", label: "brinquedos" }
   ];
 
   var gridItems = Array.from(document.querySelectorAll(".categorias-lista .categoria-item"));

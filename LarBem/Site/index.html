@@ -9,11 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="carousel-fix.css">
 
 </head>
 
-<body>
+</body>
 
 <!-- ======================================= PRIMEIRA PARTE DO SITE = CABEÇALHO E PRIMEIRA SEÇÃO ============================================= -->
 
@@ -177,27 +177,61 @@
     <!-- LADO ESQUERDO: GRADE DE CATEGORIAS -->
     <div class="categorias-grid">
 
-      <div class="categoria-item">
-        <img src="imagens/roupa.jpg" alt="Roupas">
-        <span>roupas</span>
-      </div>
+<!-- CARROSSEL -->
 
-      <div class="categoria-item">
-        <img src="imagens/tenis.jpg" alt="Calçados">
-        <span>calçados</span>
-      </div>
+  <div class="bazar-carousel" data-bazar-carousel>
+    <div class="bazar-carousel-viewport">
+      <div class="bazar-carousel-track" data-bazar-track>
 
-      <div class="categoria-item">
-        <img src="imagens/acessorio.jpg" alt="Acessórios">
-        <span>acessórios</span>
-      </div>
+        <div class="bazar-slide">
+          <img src="imagens/roupa.jpg" alt="Roupas">
+          <span>roupas</span>
+        </div>
 
-      <div class="categoria-item">
-        <img src="imagens/brinquedo.jpg" alt="Brinquedos">
-        <span>brinquedos</span>
+        <div class="bazar-slide">
+          <img src="imagens/tenis.jpg" alt="Sapatos">
+          <span>sapatos</span>
+        </div>
+
+        <div class="bazar-slide">
+          <img src="imagens/acessorio.jpg" alt="Acessórios">
+          <span>acessorios</span>
+        </div>
+
+        <div class="bazar-slide">
+          <img src="imagens/brinquedo.jpg" alt="Brinquedos">
+          <span>brinquedos</span>
+        </div>
+
       </div>
-      
     </div>
+
+    <button class="bazar-carousel-btn bazar-carousel-btn-prev" data-bazar-prev>&#8249;</button>
+    <button class="bazar-carousel-btn bazar-carousel-btn-next" data-bazar-next>&#8250;</button>
+  </div>
+
+  <!-- LISTA DE CATEGORIAS -->
+  <div class="categorias-lista">
+    <div class="categoria-item">
+      <img src="imagens/roupa.jpg" alt="Roupas">
+      <span>roupas</span>
+    </div>
+    <div class="categoria-item">
+      <img src="imagens/tenis.jpg" alt="Calçados">
+      <span>calçados</span>
+    </div>
+    <div class="categoria-item">
+      <img src="imagens/acessorio.jpg" alt="Acessórios">
+      <span>acessórios</span>
+    </div>
+    <div class="categoria-item">
+      <img src="imagens/brinquedo.jpg" alt="Brinquedos">
+      <span>brinquedos</span>
+    </div>
+  </div>
+
+</div>
+
 
     <!-- LADO DIREITO: TEXTOS E BOTÃO -->
     <div class="doacao-info">
@@ -707,6 +741,7 @@
       }
     });
   </script>
+  <script src="index.js"></script>
 
 </body>
 
