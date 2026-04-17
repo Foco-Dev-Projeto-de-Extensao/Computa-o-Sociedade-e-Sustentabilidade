@@ -26,7 +26,7 @@ body {
 
 
 
-/* ---------------------------------------------------------------- PRIMEIRA SEÇÃO -------------------------------------------------- */
+/* ---------------------------------------------------------------- PRIMEIRA SEÇÃO ------------------------------------------------------------ */
 
 /* ------------------- CABEÇALHO ------------------- */
 header {
@@ -167,6 +167,15 @@ header {
 
 /* ---------------------------------------------------- SEÇÃO VALORES (SEGUNDA SEÇÃO) -------------------------------------------- */
 
+.icone-valor {
+    position: absolute;  /* Deixa o ícone livre para se mover */
+    top: 20px;           /* Distância do topo */
+    right: 20px;         /* Distância da direita */
+    width: 40px;         /* Tamanho do ícone */
+    height: auto;
+}
+
+
 .valores-section {
   width: 100%;
   padding: 60px 60px 100px 60px; /* Reduz o padding do topo de 100 para 60 */
@@ -207,11 +216,14 @@ header {
   flex-direction: column;
   justify-content: center;
   box-shadow: 8px 8px 0px #111; 
+
+  position: relative; /* Isso faz o card ser a "âncora" para o ícone */
+  padding: 30px;
   
   opacity: 0;
   transform: translateY(50px);
   
-  transition: transform 0.4s ease, box-shadow 0.3s ease, opacity 0.8s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.2s ease, opacity 0.8s ease-out;
 }
 
 .valor-content.aparecer {
@@ -235,10 +247,8 @@ header {
   transition-delay: 0.2s;
 }
 .valores-grid .valor-card:nth-child(3) .valor-content {
-  transition-delay: 0.4s;
+  transition-delay: 0.1s;
 }
-
-
 
 .valor-card:hover .valor-content {
   transform: translate(-4px, -4px);
@@ -353,30 +363,28 @@ header {
 
 
 /*----------------------------------------------------------------------- QUARTA SEÇÃO ----------------------------------------------------------*/
+
 /* FAIXA ANIMADA */
 .marquee-banner {
   width: 100%;
   background-color: #fff; 
-  border-top: 3px solid #111;
-  border-bottom: 3px solid #111;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
   overflow: hidden; /* Esconde o que sai da tela */
   padding: 10px 0;
   display: flex;
 }
-
-.marquee-content2 {
+.marquee-content {
   display: flex;
   white-space: nowrap;
   animation: girar-faixa 35s linear infinite; /* Velocidade da animação */
 }
-
-.marquee-content2 span {
+.marquee-content span {
   font-size: 20px;
   font-weight: 600;
   color: #ff00bf; 
   padding: 0 10px;
 }
-
 @keyframes girar-faixa {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); } /* Move metade, faz parecr infinito */
@@ -425,12 +433,8 @@ header {
   color: #ff5757;
 }
 
-/* PARTE DO CARROSSEL E DO CARD DOS 'PRODUTOS' vazio por enquanto */
 
-
-/* PARTE DA DOAÇÃO PARA O BAZAR */
-
-/* ------------------------------------------------------------------- 'QUINTA SEÇÃO'   SEÇÃO DOAÇÃO ------------------------------ */
+/* ------------------------------------------------------------------- 'QUINTA SEÇÃO' SEÇÃO DOAÇÃO -------------------------------------------- */
 
 .doacao-section {
   background-color: #9055C8; 
