@@ -9,7 +9,7 @@
 ## 🏷️ DADOS DOS DISCENTES
 | MATRÍCULA | NOME E SOBRENOME | PERFIS |
 | :--- | :--- | :--- |
-| **00000859509** | Amanda Aziz Ibarra  | [Amanda-Aziz](https://github.com/Amanda-Aziz) |
+| **00000859509** | Amanda Aziz  | [Amanda-Aziz](https://github.com/Amanda-Aziz) |
 | **Sua Matrícula** | Seu Nome  | [nome-perfil](link) |
 | **Sua Matrícula** | Seu Nome  | [nome-perfil](link) |
 | **Sua Matrícula** | Seu Nome  | [nome-perfil](link) |
