@@ -1,6 +1,6 @@
 # 💻 Projeto: Site Institucional - Lar Bem Elizabeth (Extensão)
 
-> Status: 🚀 Em Desenvolvimento / ✅ Interface Prototipada
+> Status: 🟥 Em Desenvolvimento / ✅ Interface Prototipada
 
 ## 📖 Sobre o Projeto
 Este site foi desenvolvido como parte de um projeto de extensão universitária para apoiar o **Lar Bem Elizabeth**, localizado em Recife/PE. O objetivo é criar uma ponte digital entre a instituição e a comunidade, facilitando a doação de materiais e a divulgação do bazar solidário.
@@ -14,9 +14,9 @@ A interface foi projetada com foco em acessibilidade e modernidade, utilizando o
 
 | Cor | Hexadecimal |
 | :--- | :--- |
-| **Roxo** | `#6A0DAD` |
-| **Rosa** | `#E91E63` |
-| **Laranja** | `#FF9800` |
+| **Roxo** | `#ba5bff` |
+| **Rosa** | `#ff6eaf` |
+| **Laranja** | `#ff9800` |
 
 ## 🖼️ Demonstração Visual (Prints do Sistema)
 
@@ -50,7 +50,7 @@ Formulário de contato validado e integração com informações de endereço e 
 ## 📂 Estrutura de Pastas
 ```text
 ├── /css        # Arquivos de estilização
-├── /img        # Prints e ícones da interface
+├── /img        # Ícones da interface e imagens temporárias.
 ├── /js         # Scripts de interação
 ├── index.html  # Página principal
 └── README.md   # Documentação do projeto
