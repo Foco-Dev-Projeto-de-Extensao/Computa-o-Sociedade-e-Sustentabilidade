@@ -12,7 +12,7 @@
 | **00000859509** | Amanda Aziz  | [Amanda-Aziz](https://github.com/Amanda-Aziz) |
 | **00000861020** | Mozart Moura | [mozartDemarias](https://github.com/mozartDemarias) |
 | **00000851337** | Marcos Vinicius  | [Marcosbd8204](https://github.com/Marcosbd8204) |
-| **Sua Matrícula** | Diego Souza  | [DiegoSouzaTech](https://github.com/DiegoSouzaTech) |
+| **00000860561** | Diego Souza  | [DiegoSouzaTech](https://github.com/DiegoSouzaTech) |
 
 ---
 
