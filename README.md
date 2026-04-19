@@ -39,3 +39,7 @@ Neste espaço, você encontrará:
 *   ✅ **Protótipos de Alta Fidelidade** (Design do site)
 *   ✅ **Fluxogramas de Processos**
 *   ✅ **Materiais de Divulgação e Planejamento Estratégico**
+
+---
+
+[LINK APRESENTAÇÃO](https://canva.link/8cmxldpm28i7thu)
