@@ -7,7 +7,6 @@
 html {
   width: 100%;
   height: 100%;
-
   scroll-behavior: smooth !important;
 }
 
@@ -41,7 +40,7 @@ body {
 }
 
 
-/* ---------------------------------------------------------------- PRIMEIRA SEÇÃO ------------------------------------------------------------ */
+/* ============================================================== PRIMEIRA SEÇÃO =============================================================== */
 
 
 header {
@@ -177,7 +176,7 @@ header {
 
 
 
-/* --------------------------------------------------------  SEGUNDA SEÇÃO - SEÇÃO VALORES ------------------------------------------------------ */
+/* ==============================================================  SEGUNDA SEÇÃO - SEÇÃO VALORES =============================================== */
 
 .icone-valor {
     position: absolute;  /* Deixa o ícone livre para se mover */
@@ -186,7 +185,6 @@ header {
     width: 40px;         /* Tamanho do ícone */
     height: auto;
 }
-
 
 .valores-section {
   width: 100%;
@@ -228,13 +226,10 @@ header {
   flex-direction: column;
   justify-content: center;
   box-shadow: 8px 8px 0px #111; 
-
   position: relative; /* Isso faz o card ser a "âncora" para o ícone */
   padding: 30px;
-  
   opacity: 0;
-  transform: translateY(50px);
-  
+  transform: translateY(50px);  
   transition: transform 0.3s ease, box-shadow 0.2s ease, opacity 0.8s ease-out;
 }
 
@@ -242,7 +237,6 @@ header {
   opacity: 1;
   transform: translateY(0);
 }
-
 .valor-card:nth-child(1) .valor-content.aparecer { transition-delay: 0.1s; }
 .valor-card:nth-child(2) .valor-content.aparecer { transition-delay: 0.1s; }
 .valor-card:nth-child(3) .valor-content.aparecer { transition-delay: 0.2s; }
@@ -253,21 +247,18 @@ header {
   box-shadow: 14px 14px 0px #111;
   transition-delay: 0s !important; 
 }
-
 .valores-grid .valor-card:nth-child(2) .valor-content {
   transition-delay: 0.2s;
 }
 .valores-grid .valor-card:nth-child(3) .valor-content {
   transition-delay: 0.1s;
 }
-
 .valor-card:hover .valor-content {
   transform: translate(-4px, -4px);
   box-shadow: 12px 12px 0px #111;
 }
 
-
-/* -------------------------------------------------------------------- TERCEIRA SEÇÃO - SEÇÃO SERVIÇOS ---------------------------------------- */
+/* ============================================================== TERCEIRA SEÇÃO - SEÇÃO SERVIÇOS ============================================== */
 
 /* Container Principal da Seção */
 .servicos-section {
@@ -367,10 +358,14 @@ header {
   box-shadow: 2px 2px 0px #111;   /* A sombra diminui */
 }
 
+/* ANIMAÇÃO DE APARECER em breve */
 
 
 
-/*----------------------------------------------------------------------- QUARTA SEÇÃO ----------------------------------------------------------*/
+
+
+
+/* ================================================================ QUARTA SEÇÃO ============================================================== */
 
 /* FAIXA ANIMADA */
 .marquee {
@@ -542,7 +537,7 @@ header {
   transition: all 0.1s;
 }
 
-/* ============================================= CARROSSEL === */
+/* ========== CARROSSEL ========== */
 .bazar-carousel {
   position: relative;
   width: 100%;
@@ -650,45 +645,13 @@ header {
 }
 
 
-/*----------------------------------------------------------------------- QUINTA SEÇÃO ---------------------------------------------------------*/
+/* =============================================================== QUINTA SEÇÃO ================================================================ */
 
-
-/* FAIXA ANIMADA */
-.marquee {
-  width: 100%;
-
-  background-color: #fff; 
-  border-top: 3px solid #111;
-  border-bottom: 3px solid #111;
-  
-  overflow: hidden; /* Esconde o que sai da tela */
-  padding: 10px 0;
-  display: flex;
-}
-.marquee-content {
-  display: flex;
-  white-space: nowrap;
-  animation: girar-faixa 35s linear infinite; /* Velocidade da animação */
-}
-.marquee-content span {
-  font-size: 20px;
-  font-weight: 600;
-  color: #ff5757; 
-  padding: 0 10px;
-}
-@keyframes girar-faixa {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); } /* Move metade, faz parecr infinito */
-}
 
 /* CONTEÚDO DA SEÇÃO */
 .ajudar-section {
   padding: 80px 10%;
   text-align: center;
-  /*
-  background-image: url(imagens/fundo4.png);
-  background-repeat: no-repeat;
-  background-size: cover; */
 }
 
 .ajudar-titulo {
@@ -763,7 +726,7 @@ header {
 }
 
 
-/*----------------------------------------------------------------------- SEXTA SEÇÃO ---------------------------------------------------------*/
+/* ================================================================ SEXTA SEÇÃO ================================================================ */
 
 /* FOOTER  */
 footer {

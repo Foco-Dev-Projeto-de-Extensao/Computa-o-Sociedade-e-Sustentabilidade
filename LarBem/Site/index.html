@@ -64,7 +64,9 @@
 <!-- ======================================================= SEGUNDA SEÇÃO DO SITE =========================================================== -->
 
 <div id="SEGUNDA-SECAO">
+
 <section class="valores-section">
+
   <h2 class="valores-titulo"><span>NOSSOS</span> VALORES</h2>
 
   <div class="valores-grid"> <!-- ---------- INICIO DA PARTE DOS CARDS COM OS VALORES -------->
@@ -111,18 +113,40 @@
         <br>
         <p>Lutamos diariamente pela garantia dos direitos fundamentais. Não aceitamos a desigualdade e agimos para 
           transformar a realidade de vulnerabilidade em um futuro de oportunidades.</p>
-
       </div>
     </div>
+
   </div>    <!-- FIM DA PARTE DOS CARDS COM OS VALORES -->
-</section>      <!-- ------ FIM DA SEGUNDA SEÇÃO DO SITE  ------- -->
+
+  <script>
+    const observerOptions = {
+      threshold: 0.1 // Ativa quando 10% do card aparece
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('aparecer');
+        }
+      });
+    }, observerOptions);
+    // Seleciona todos os cards de valor
+    document.querySelectorAll('.valor-content').forEach((card) => {
+      observer.observe(card);
+    });
+    </script>
+
+</div>
+
+
+
+</section>
 
 </div>
 
 <!-- ======================================================= TERCEIRA SEÇÃO DO SITE - SERVIÇOS ================================================= -->
 
 <div id="TERCEIRA-SECAO">
-<!-- ------------ SERVIÇOS ---------------- -->
+
 <section class="servicos-section">
   <div class="servicos-container">
     <!-- Lado Esquerdo: Textos -->
@@ -158,6 +182,7 @@
   </div>
 
 </section>
+
 
 </div>
 
@@ -213,6 +238,8 @@
         </p>
       </div>
     </div>
+
+    <script src="carrossel.js"></script>
 
     <!-- LINHA 2: Lista categorias (esq) + Doe para o Bazar (dir) -->
     <div class="linha-bazar">
@@ -296,7 +323,7 @@
 </section>
 </div>
 
-<!-- ========================================================== SEXTA SEÇÃO DO SITE =========================================================== -->
+<!-- ========================================================== SEXTA SEÇÃO DO SITE + CSS ===================================================== -->
 
 <div id="SEXTA-SECAO">
 <!-- Contact section styles -->
@@ -729,28 +756,10 @@
       }
     });
   </script>
-  <script src="index.js"></script>
 
 
-  <script>
-  const observerOptions = {
-    threshold: 0.1 // Ativa quando 10% do card aparece
-  };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('aparecer');
-      }
-    });
-  }, observerOptions);
-
-  // Seleciona todos os seus cards de valor
-  document.querySelectorAll('.valor-content').forEach((card) => {
-    observer.observe(card);
-  });
-</script>
-</div>
+  
 
 
 </body>
