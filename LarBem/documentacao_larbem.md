@@ -1,6 +1,6 @@
 # 💻 Projeto: Site Institucional - Lar Bem Elizabeth (Extensão)
 
-> Status: 🟥 Em Desenvolvimento | ✅ Interface Prototipada | 🟥 Kanbam
+> Status: 🟥 Em Desenvolvimento
 
 ## 📖 Sobre o Projeto
 Este site foi desenvolvido como parte de um projeto de extensão universitária para apoiar o **Lar Bem Elizabeth**, localizado em Recife/PE. O objetivo é criar uma ponte digital entre a instituição e a comunidade, facilitando a doação de materiais e a divulgação do bazar solidário.
