@@ -28,7 +28,6 @@
       min-height: 100vh;
     }
 
-    /* ── HEADER ── */
     header {
       background: var(--escuro);
       padding: 16px 40px;
@@ -64,7 +63,6 @@
 
     .btn-voltar:hover { color: var(--branco); }
 
-    /* ── CARRINHO BOTÃO ── */
     .btn-carrinho {
       background: var(--roxo);
       color: var(--branco);
@@ -97,7 +95,6 @@
       font-weight: 700;
     }
 
-    /* ── HERO ── */
     .hero {
       background: linear-gradient(135deg, var(--escuro) 60%, #2d1b69);
       padding: 60px 40px;
@@ -121,7 +118,6 @@
       margin: 0 auto;
     }
 
-    /* ── CATEGORIAS ── */
     .categorias {
       display: flex;
       gap: 10px;
@@ -149,7 +145,6 @@
       color: var(--branco);
     }
 
-    /* ── GRID PRODUTOS ── */
     .section-titulo {
       padding: 30px 40px 0;
       font-size: 1.4rem;
@@ -163,7 +158,6 @@
       padding: 24px 40px 60px;
     }
 
-    /* ── CARD PRODUTO ── */
     .card {
       background: var(--branco);
       border-radius: 20px;
@@ -182,13 +176,13 @@
     .card-img {
       width: 100%;
       height: 200px;
-      object-fit: cover;
       background: #f0ece4;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #bbb;
       font-size: 0.8rem;
+      overflow: hidden;
     }
 
     .card-img img {
@@ -231,11 +225,7 @@
       color: var(--cinza);
     }
 
-    .card-qtd {
-      font-size: 0.78rem;
-      color: var(--cinza);
-    }
-
+    .card-qtd { font-size: 0.78rem; color: var(--cinza); }
     .card-qtd.esgotado { color: var(--vermelho); font-weight: 600; }
 
     .btn-add {
@@ -256,7 +246,6 @@
     .btn-add:hover { background: var(--roxo); }
     .btn-add:disabled { background: #ccc; cursor: not-allowed; }
 
-    /* ── ESTADO VAZIO ── */
     .vazio {
       grid-column: 1 / -1;
       text-align: center;
@@ -266,7 +255,6 @@
 
     .vazio p { font-size: 1rem; margin-top: 8px; }
 
-    /* ── LOADING ── */
     .loading {
       grid-column: 1 / -1;
       text-align: center;
@@ -274,7 +262,6 @@
       color: var(--cinza);
     }
 
-    /* ── SIDEBAR CARRINHO ── */
     .overlay {
       position: fixed;
       inset: 0;
@@ -415,7 +402,6 @@
 
     .btn-finalizar:hover { background: #7c3aed; }
 
-    /* ── TOAST ── */
     #toast {
       position: fixed;
       bottom: 32px;
@@ -439,7 +425,6 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* ── RESPONSIVO ── */
     @media (max-width: 600px) {
       header { padding: 16px 20px; }
       .categorias { padding: 20px 20px 0; }
@@ -451,11 +436,10 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
-    <a href="index.html" class="logo">Larbem<span>.</span></a>
+    <a href="siteORIG.html" class="logo">Larbem<span>.</span></a>
     <div class="header-right">
-      <a href="index.html" class="btn-voltar">← Voltar ao site</a>
+      <a href="siteORIG.html" class="btn-voltar">← Voltar ao site</a>
       <button class="btn-carrinho" onclick="abrirCarrinho()">
         🛒 Carrinho
         <span class="carrinho-badge" id="badge">0</span>
@@ -463,13 +447,11 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <div class="hero">
     <h1>Nosso Bazar<span>.</span></h1>
     <p>Produtos doados com amor, vendidos para fazer o bem. Cada compra apoia nossas crianças.</p>
   </div>
 
-  <!-- CATEGORIAS -->
   <div class="categorias" id="categorias">
     <button class="btn-cat ativo" onclick="filtrar('todos', this)">Todos</button>
     <button class="btn-cat" onclick="filtrar('roupas', this)">Roupas</button>
@@ -478,16 +460,13 @@
     <button class="btn-cat" onclick="filtrar('brinquedos', this)">Brinquedos</button>
   </div>
 
-  <!-- PRODUTOS -->
   <p class="section-titulo" id="section-titulo">Todos os produtos</p>
   <div class="grid-produtos" id="grid">
     <div class="loading">Carregando produtos...</div>
   </div>
 
-  <!-- OVERLAY -->
   <div class="overlay" id="overlay" onclick="fecharCarrinho()"></div>
 
-  <!-- SIDEBAR CARRINHO -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <h2>Seu Carrinho</h2>
@@ -505,79 +484,94 @@
     </div>
   </div>
 
-  <!-- TOAST -->
   <div id="toast"></div>
 
-  <!-- FIREBASE -->
+  <!-- ── FIREBASE + LÓGICA INICIAL ── -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, collection, getDocs, query, where, orderBy }
+    import { getFirestore, collection, getDocs, query, where }
       from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    dontenv.config();
 
-    // ── Cole aqui seu firebaseConfig ──────────────────
     const firebaseConfig = {
-      apiKey: "AIzaSyDVyZ5ZkAPyWFBMS-tNQRktwu53yomKoBI",
-      authDomain: "lar-bem.firebaseapp.com",
-      projectId: "lar-bem",
-      storageBucket: "lar-bem.firebasestorage.app",
-      messagingSenderId: "284441631105  ",
-      appId: "1:284441631105:web:ee94fab9a82a832f077080"
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTHDOMAIN,
+    projectId: process.env.PROJECTID,
+    storageBucket: process.env.STORAGEBUCKET,
+    messagingSenderId: process.env.MESSAGINGSENDERID,
+    appId: process.env.APPID
     };
-    // ─────────────────────────────────────────────────
 
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db  = getFirestore(app);
 
-    // Expõe globalmente para o resto do script usar
-    window._db = db;
+    window._db         = db;
     window._collection = collection;
-    window._getDocs = getDocs;
-    window._query = query;
-    window._where = where;
+    window._getDocs    = getDocs;
+    window._query      = query;
+    window._where      = where;
 
-    // Carrega produtos ao iniciar
-    carregarProdutos('todos');
+    // ── Lê categoria da URL (?cat=roupas) ────────────
+    const params     = new URLSearchParams(window.location.search);
+    const catInicial = params.get('cat') || 'todos';
+
+    const titulos = {
+      todos: 'Todos os produtos',
+      roupas: 'Roupas',
+      'calçados': 'Calçados',
+      'acessórios': 'Acessórios',
+      brinquedos: 'Brinquedos'
+    };
+
+    // Marca botão correto como ativo
+    document.querySelectorAll('.btn-cat').forEach(btn => {
+      btn.classList.remove('ativo');
+      const textoBtn = btn.textContent.trim().toLowerCase();
+      if (textoBtn === catInicial.toLowerCase() ||
+         (catInicial === 'todos' && textoBtn === 'todos')) {
+        btn.classList.add('ativo');
+      }
+    });
+
+    // Atualiza título
+    document.getElementById('section-titulo').textContent =
+      titulos[catInicial] || catInicial;
+
+    // Carrega produtos da categoria
+    window.addEventListener('load', () => {
+      window.carregarProdutos(catInicial);
+    });
   </script>
 
+  <!-- ── FUNÇÕES GLOBAIS ── -->
   <script>
-    // ── ESTADO ────────────────────────────────────────
-    let carrinho = [];
+    let carrinho     = [];
     let todosProdutos = [];
-    let categoriaAtual = 'todos';
 
-    // ── CARREGAR PRODUTOS DO FIREBASE ─────────────────
     async function carregarProdutos(categoria) {
       const grid = document.getElementById('grid');
       grid.innerHTML = '<div class="loading">Carregando produtos...</div>';
 
-      // Aguarda o Firebase inicializar
-      await new Promise(r => setTimeout(r, 800));
+      await new Promise(r => setTimeout(r, 600));
 
       try {
-        const db = window._db;
+        const db  = window._db;
         const col = window._collection(db, 'produtos');
-
-        let q;
-        if (categoria === 'todos') {
-          q = col;
-        } else {
-          q = window._query(col, window._where('categoria', '==', categoria));
-        }
+        const q   = categoria === 'todos'
+          ? col
+          : window._query(col, window._where('categoria', '==', categoria));
 
         const snap = await window._getDocs(q);
         todosProdutos = [];
-        snap.forEach(doc => {
-          todosProdutos.push({ id: doc.id, ...doc.data() });
-        });
+        snap.forEach(doc => todosProdutos.push({ id: doc.id, ...doc.data() }));
 
         renderizarProdutos(todosProdutos);
       } catch (err) {
         console.error(err);
-        grid.innerHTML = '<div class="vazio">⚠️<p>Erro ao carregar produtos.<br>Verifique a conexão com o Firebase.</p></div>';
+        grid.innerHTML = '<div class="vazio">⚠️<p>Erro ao carregar produtos.</p></div>';
       }
     }
 
-    // ── RENDERIZAR CARDS ──────────────────────────────
     function renderizarProdutos(produtos) {
       const grid = document.getElementById('grid');
 
@@ -589,9 +583,7 @@
       grid.innerHTML = produtos.map(p => `
         <div class="card">
           <div class="card-img">
-            ${p.imagem
-              ? `<img src="${p.imagem}" alt="${p.nome}" />`
-              : '📦 Sem imagem'}
+            ${p.imagem ? `<img src="${p.imagem}" alt="${p.nome}" />` : '📦 Sem imagem'}
           </div>
           <div class="card-body">
             <span class="card-categoria">${p.categoria}</span>
@@ -610,15 +602,7 @@
       `).join('');
     }
 
-    // ── FILTRAR POR CATEGORIA ─────────────────────────
     function filtrar(categoria, btn) {
-      categoriaAtual = categoria;
-
-      // Atualiza botões
-      document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('ativo'));
-      btn.classList.add('ativo');
-
-      // Atualiza título
       const titulos = {
         todos: 'Todos os produtos',
         roupas: 'Roupas',
@@ -626,25 +610,21 @@
         'acessórios': 'Acessórios',
         brinquedos: 'Brinquedos'
       };
-      document.getElementById('section-titulo').textContent = titulos[categoria] || categoria;
 
+      document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('ativo'));
+      btn.classList.add('ativo');
+      document.getElementById('section-titulo').textContent = titulos[categoria] || categoria;
       carregarProdutos(categoria);
     }
 
-    // ── CARRINHO ──────────────────────────────────────
     function adicionarAoCarrinho(id, nome, preco, imagem, qtdDisp) {
       const existente = carrinho.find(i => i.id === id);
-
       if (existente) {
-        if (existente.qtd >= qtdDisp) {
-          mostrarToast('Quantidade máxima atingida!');
-          return;
-        }
+        if (existente.qtd >= qtdDisp) { mostrarToast('Quantidade máxima atingida!'); return; }
         existente.qtd++;
       } else {
         carrinho.push({ id, nome, preco, imagem, qtd: 1, qtdDisp });
       }
-
       atualizarCarrinho();
       mostrarToast(`✅ ${nome} adicionado!`);
     }
@@ -657,30 +637,18 @@
     function alterarQtd(id, delta) {
       const item = carrinho.find(i => i.id === id);
       if (!item) return;
-
       item.qtd += delta;
-
-      if (item.qtd <= 0) {
-        removerDoCarrinho(id);
-        return;
-      }
-
-      if (item.qtd > item.qtdDisp) {
-        item.qtd = item.qtdDisp;
-        mostrarToast('Quantidade máxima atingida!');
-      }
-
+      if (item.qtd <= 0) { removerDoCarrinho(id); return; }
+      if (item.qtd > item.qtdDisp) { item.qtd = item.qtdDisp; mostrarToast('Quantidade máxima atingida!'); }
       atualizarCarrinho();
     }
 
     function atualizarCarrinho() {
-      // Badge
-      const total = carrinho.reduce((s, i) => s + i.qtd, 0);
-      document.getElementById('badge').textContent = total;
-
-      // Itens na sidebar
+      const total     = carrinho.reduce((s, i) => s + i.qtd, 0);
       const container = document.getElementById('sidebar-itens');
-      const footer = document.getElementById('sidebar-footer');
+      const footer    = document.getElementById('sidebar-footer');
+
+      document.getElementById('badge').textContent = total;
 
       if (carrinho.length === 0) {
         container.innerHTML = '<div class="carrinho-vazio">🛒<br>Seu carrinho está vazio</div>';
@@ -689,7 +657,6 @@
       }
 
       footer.style.display = 'block';
-
       container.innerHTML = carrinho.map(item => `
         <div class="item-carrinho">
           ${item.imagem
@@ -707,13 +674,11 @@
         </div>
       `).join('');
 
-      // Total
       const totalValor = carrinho.reduce((s, i) => s + (i.preco * i.qtd), 0);
       document.getElementById('total-valor').textContent =
         'R$ ' + totalValor.toFixed(2).replace('.', ',');
     }
 
-    // ── ABRIR / FECHAR CARRINHO ───────────────────────
     function abrirCarrinho() {
       document.getElementById('sidebar').classList.add('aberto');
       document.getElementById('overlay').classList.add('aberto');
@@ -724,24 +689,17 @@
       document.getElementById('overlay').classList.remove('aberto');
     }
 
-    // ── FINALIZAR PELO WHATSAPP ───────────────────────
     function finalizar() {
       if (carrinho.length === 0) return;
-
-      // ⚠️ Troque pelo número real do WhatsApp da instituição
-      const numero = '(81) 3225-0151';
-
-      const itens = carrinho.map(i =>
+      const numero = '5581932250151'; // ← número real sem traços e com código do país
+      const itens  = carrinho.map(i =>
         `• ${i.nome} x${i.qtd} = R$ ${(i.preco * i.qtd).toFixed(2).replace('.', ',')}`
       ).join('\n');
-
       const total = carrinho.reduce((s, i) => s + (i.preco * i.qtd), 0);
-      const msg = `Olá! Gostaria de comprar os seguintes itens do Bazar Solidário Lar Bem:\n\n${itens}\n\nTotal: R$ ${total.toFixed(2).replace('.', ',')}`;
-
+      const msg   = `Olá! Gostaria de comprar os seguintes itens do Bazar Solidário Lar Bem:\n\n${itens}\n\nTotal: R$ ${total.toFixed(2).replace('.', ',')}`;
       window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    // ── TOAST ─────────────────────────────────────────
     function mostrarToast(msg) {
       const t = document.getElementById('toast');
       t.textContent = msg;
@@ -749,13 +707,13 @@
       setTimeout(() => t.classList.remove('show'), 2500);
     }
 
-    // Expõe funções globalmente
-    window.filtrar = filtrar;
+    window.carregarProdutos = carregarProdutos;
+    window.filtrar          = filtrar;
     window.adicionarAoCarrinho = adicionarAoCarrinho;
-    window.alterarQtd = alterarQtd;
-    window.abrirCarrinho = abrirCarrinho;
-    window.fecharCarrinho = fecharCarrinho;
-    window.finalizar = finalizar;
+    window.alterarQtd       = alterarQtd;
+    window.abrirCarrinho    = abrirCarrinho;
+    window.fecharCarrinho   = fecharCarrinho;
+    window.finalizar        = finalizar;
   </script>
 
 </body>

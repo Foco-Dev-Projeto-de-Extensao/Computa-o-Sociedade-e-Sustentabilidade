@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin – Lar Bem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f0e8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-card {
+      background: #fff;
+      border: 3px solid #111;
+      border-radius: 24px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 8px 8px 0 #111;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    h1 span { color: #8b5cf6; }
+
+    p.subtitulo {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 32px;
+    }
+
+    .campo {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    input {
+      border: 2px solid #e5e5e5;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color .2s;
+      background: #f5f0e8;
+    }
+
+    input:focus { border-color: #8b5cf6; }
+
+    .btn-login {
+      width: 100%;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background .2s;
+    }
+
+    .btn-login:hover { background: #8b5cf6; }
+
+    .erro {
+      color: #e53e3e;
+      font-size: 0.82rem;
+      margin-top: 12px;
+      text-align: center;
+      display: none;
+    }
+
+    .voltar {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.82rem;
+      color: #666;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .voltar:hover { color: #111; }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <h1>Admin<span>.</span></h1>
+    <p class="subtitulo">Acesso restrito ao painel administrativo</p>
+
+    <div class="campo">
+      <label>E-mail</label>
+      <input type="email" id="email" placeholder="admin@larbem.org.br">
+    </div>
+
+    <div class="campo">
+      <label>Senha</label>
+      <input type="password" id="senha" placeholder="••••••••">
+    </div>
+
+    <button class="btn-login" onclick="fazerLogin()">Entrar</button>
+    <p class="erro" id="erro">E-mail ou senha incorretos.</p>
+
+    <a href="siteORIG.html" class="voltar">← Voltar ao site</a>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword }
+      from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    import dontenv from "dotenv";
+    dontenv.config();
+
+    const firebaseConfig = {
+      apiKey: process.env.API_KEY,
+      authDomain: process.env.AUTHDOMAIN,
+      projectId: process.env.PROJECTID,
+      storageBucket: process.env.STORAGEBUCKET,
+      messagingSenderId: process.env.MESSAGINGSENDERID,
+      appId: process.env.APPID
+};
+    // ─────────────────────────────────────────────────
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.fazerLogin = async function () {
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value;
+      const erro  = document.getElementById('erro');
+      erro.style.display = 'none';
+
+      try {
+        await signInWithEmailAndPassword(auth, email, senha);
+        // Login OK → redireciona para o admin
+        window.location.href = 'admin.html';
+      } catch (err) {
+        erro.style.display = 'block';
+      }
+    };
+
+    // Permite login com Enter
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter') window.fazerLogin();
+    });
+  </script>
+
+</body>
+</html>
