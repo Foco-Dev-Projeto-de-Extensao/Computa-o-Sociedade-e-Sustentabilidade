@@ -35,8 +35,3 @@ Neste repositório, estão disponíveis:
 *   ✅ **Protótipos de Alta Fidelidade** (Design do site)
 *   ✅ **Fluxogramas de Processos**
 *   ✅ **Documentação de Requisitos e Usabilidade**
-
----
-
-## 🔗 Links Úteis
-[APRESENTAÇÃO](https://canva.link/8cmxldpm28i7thu)
