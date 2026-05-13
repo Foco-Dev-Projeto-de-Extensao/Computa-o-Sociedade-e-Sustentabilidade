@@ -919,9 +919,7 @@ footer {
     width: 260px;
     z-index: 100;
     box-shadow: -6px 0 0 #111;
-  }  
-
-  
+  } 
 
   .nav.menu-aberto a {
     display: flex;
