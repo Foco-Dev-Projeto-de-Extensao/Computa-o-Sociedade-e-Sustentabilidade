@@ -900,25 +900,28 @@ footer {
   .nav.menu-aberto {
     display: flex !important;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: nowrap;
-    background: rgba(248, 244, 235, 0.95);
+    background: rgba(248, 244, 235, 0.10);  
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px 0 0 20px;
-    border: 3px solid #111;
+    border: 2px solid #111;
     border-right: none;
     padding: 32px 24px;
     gap: 12px;
     position: fixed;
-    top: 0;
+    top: 20px;  
     right: 0;
-    bottom: 0;
+    height: auto;    
+    max-height: 80vh; 
     width: 260px;
     z-index: 100;
     box-shadow: -6px 0 0 #111;
-  }
+  }  
+
+  
 
   .nav.menu-aberto a {
     display: flex;
