@@ -790,15 +790,16 @@ footer {
 /* ==================================================== RESPONSIVIDADE DO SITE HOME ================================= */
 
 /* ────────────────────────────────────────────────────────────────
+   BOTÃO HAMBURGUER — oculto por padrão no desktop
+   ──────────────────────────────────────────────────────────────── */
+.btn-hamburger {
+  display: none;
+}
+
+/* ────────────────────────────────────────────────────────────────
    TABLET GRANDE  (≤ 1200px)
    ──────────────────────────────────────────────────────────────── */
 @media (max-width: 1200px) {
-
-
-.btn-hamburger {
-  display: none; /* escondido no desktop */
-}
-
 
   /* PRIMEIRA SEÇÃO */
   .container {
@@ -860,12 +861,7 @@ footer {
    ──────────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
 
-  .btn-hamburger {
-    display: flex; /* aparece no tablet e mobile */
-  }
-
-
-  /* NAV — hamburguer */
+  /* NAV — links escondidos, hamburguer aparece */
   .nav {
     padding: 20px 5%;
     position: relative;
@@ -877,50 +873,56 @@ footer {
     font-size: 13px;
   }
 
-  /* Menu aberto */
-  .nav.menu-aberto {
-    flex-wrap: wrap;
-    background: rgba(248, 244, 235, 0.85); /* transparente */
-    backdrop-filter: blur(1.1px);            /* efeito vidro fosco */
-    -webkit-backdrop-filter: blur(8px);    /* Safari */
-    border-radius: 20px;
-    border: 3px solid #111;
-    padding: 16px 16px 16px 16px;
-    padding-right: 60px;                   /* espaço para o botão ✕ não sobrepor */
-    gap: 10px;
-    position: fixed;
-    top: 16px;
-    left: 5%;
-    right: 5%;
-    z-index: 100;
-    box-shadow: 6px 6px 0 #111;
-  }
-
-  .nav.menu-aberto a {
-    display: flex;
-  }
-
-  /* Botão hamburguer */
   .btn-hamburger {
     display: flex !important;
     position: fixed;
-    top: 24px;
-    right: calc(5% + 10px); /* alinha com a borda do menu */
+    top: 10%;
+    right: 0;
+    transform: translateY(-50%);
     z-index: 200;
     background: #f8f4eb;
     border: 3px solid #111;
-    border-radius: 50px;
-    padding: 10px 18px;
+    border-right: none;
+    border-radius: 12px 0 0 12px;
+    padding: 14px 10px;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 4px 4px 0 #111;
+    box-shadow: -3px 3px 0 #111;
     transition: all 0.2s;
   }
 
   .btn-hamburger:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #111;
+    padding-left: 16px;
+  }
+
+  /* Menu aberto — painel lateral direito */
+  .nav.menu-aberto {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    background: rgba(248, 244, 235, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px 0 0 20px;
+    border: 3px solid #111;
+    border-right: none;
+    padding: 32px 24px;
+    gap: 12px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 260px;
+    z-index: 100;
+    box-shadow: -6px 0 0 #111;
+  }
+
+  .nav.menu-aberto a {
+    display: flex;
+    width: 100%;
   }
 
   /* PRIMEIRA SEÇÃO — empilha */
@@ -1004,6 +1006,19 @@ footer {
     gap: 80px;
   }
 
+  .categorias-lista-col {
+    width: 100%;
+  }
+
+  .categoria-item {
+    width: 100%;
+    height: 160px;
+  }
+
+  .categoria-item span {
+    font-size: 40px;
+  }
+
   /* QUINTA SEÇÃO */
   .ajudar-titulo {
     font-size: 52px;
@@ -1037,21 +1052,6 @@ footer {
     margin: 0 auto;
     padding: 36px 28px;
   }
-
-
-  .categorias-lista-col {
-    width: 100%;
-  }
-
-  .categoria-item {
-    width: 100%;
-    height: 160px;
-  }
-
-  .categoria-item span {
-    font-size: 40px; /* garante que o texto não corta */
-  }
-
 }
 
 
@@ -1104,10 +1104,6 @@ footer {
   }
 
   .valor-content {
-    padding: 20px;
-  }
-
-  .valor-content {
     padding: 16px;
     min-height: auto;
   }
@@ -1120,7 +1116,6 @@ footer {
   .valor-content p {
     font-size: 0.85rem;
   }
-
 
   /* TERCEIRA SEÇÃO */
   .servicos-section {
@@ -1189,17 +1184,17 @@ footer {
     font-size: 15px;
   }
 
-  .categoria-item span {
-    font-size: 28px;
-  }
-
   .categorias-lista-col {
     width: 100%;
   }
 
   .categoria-item {
     width: 100%;
-    height: 160px; /* ou o valor que preferir */
+    height: 160px;
+  }
+
+  .categoria-item span {
+    font-size: 28px;
   }
 
   /* MARQUEE */
@@ -1223,14 +1218,14 @@ footer {
   }
 
   .ajudar-card {
-    padding: 20px 16px;  
+    padding: 20px 16px;
     min-height: auto;
     box-shadow: 6px 6px 0px #111;
   }
 
   .ajudar-card h3 {
-    font-size: 18px;     
-    margin-bottom: 12px; 
+    font-size: 18px;
+    margin-bottom: 12px;
   }
 
   .ajudar-card p {
@@ -1238,11 +1233,29 @@ footer {
     line-height: 1.4;
   }
 
-
   /* SEXTA SEÇÃO */
   .contact-info h1 {
     font-size: 2.2rem !important;
     margin-bottom: 24px;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 16px;
+    border-radius: 18px;
+    box-shadow: 5px 5px 0 #1a1a1a;
+  }
+
+  .contact-card input,
+  .contact-card textarea {
+    padding: 11px 14px;
+    font-size: 0.85rem;
+  }
+
+  .contact-card button {
+    padding: 12px;
+    font-size: 0.88rem;
   }
 
   /* FOOTER */
@@ -1278,11 +1291,4 @@ footer {
     width: 180px;
     height: 180px;
   }
-}
-
-/* ────────────────────────────────────────────────────────────────
-   BOTÃO HAMBURGUER — oculto por padrão no desktop
-   ──────────────────────────────────────────────────────────────── */
-.btn-hamburger {
-  display: none;
 }
