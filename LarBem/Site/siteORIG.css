@@ -1223,18 +1223,18 @@ footer {
   }
 
   .ajudar-card {
-    padding: 20px 16px;  /* era 28px 20px */
-    min-height: auto;    /* remove o mínimo de 220px */
-    box-shadow: 6px 6px 0px #111; /* reduz a sombra também */
+    padding: 20px 16px;  
+    min-height: auto;
+    box-shadow: 6px 6px 0px #111;
   }
 
   .ajudar-card h3 {
-    font-size: 18px;     /* era 20px */
-    margin-bottom: 12px; /* era 20px */
+    font-size: 18px;     
+    margin-bottom: 12px; 
   }
 
   .ajudar-card p {
-    font-size: 15px;     /* era 16px */
+    font-size: 15px;
     line-height: 1.4;
   }
 
