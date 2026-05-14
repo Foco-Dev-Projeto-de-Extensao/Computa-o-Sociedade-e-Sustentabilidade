@@ -876,19 +876,18 @@ footer {
   .btn-hamburger {
     display: flex !important;
     position: fixed;
-    top: 10%;
-    right: 0;
-    transform: translateY(-50%);
+    top: 20px;           /* topo do painel */
+    right: 8px;          /* dentro da área do painel (260px de largura) */
+    transform: none;     /* remove o translateY(-50%) */
     z-index: 200;
     background: #f8f4eb;
     border: 3px solid #111;
-    border-right: none;
-    border-radius: 12px 0 0 12px;
-    padding: 14px 10px;
-    font-size: 20px;
+    border-radius: 50px;
+    padding: 8px 14px;
+    font-size: 18px;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: -3px 3px 0 #111;
+    box-shadow: 3px 3px 0 #111;
     transition: all 0.2s;
   }
 
@@ -900,7 +899,8 @@ footer {
   .nav.menu-aberto {
     display: flex !important;
     flex-direction: column;
-    justify-content: flex-start;
+    align-items: flex-end; 
+    justify-content: center;  /* centraliza os links verticalmente */
     align-items: flex-start;
     flex-wrap: nowrap;
     background: rgba(248, 244, 235, 0.10);  
@@ -909,17 +909,16 @@ footer {
     border-radius: 20px 0 0 20px;
     border: 2px solid #111;
     border-right: none;
-    padding: 32px 24px;
-    gap: 12px;
+    padding: 80px 24px 40px 24px;
+    gap: 30px;
     position: fixed;
-    top: 20px;  
+    top: 0;
     right: 0;
-    height: auto;    
-    max-height: 80vh; 
+    height: 100vh;   /* ocupa a tela toda */
     width: 260px;
     z-index: 100;
     box-shadow: -6px 0 0 #111;
-  } 
+  }
 
   .nav.menu-aberto a {
     display: flex;
