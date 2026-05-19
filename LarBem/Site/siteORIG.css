@@ -23,6 +23,11 @@ body {
   background-attachment: fixed; 
 }
 
+h1,h2,h3,h4 {
+  user-select: none;
+  cursor: default;
+}
+
 #SEGUNDA-SECAO {
   scroll-margin-top: 80px; 
 }
@@ -419,16 +424,16 @@ header {
 
 /* SEÇÃO PRINCIPAL */
 
-.quarta-secao {
+#QUARTA-SECAO{
   padding: 80px 10%;
   color: #fff;
-  background: url(imagens/FUNDOS/fundo2.png);
+  background: url(imagens/FUNDOS/fundo4.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed; 
-  
 }
+
 
 .quarta-secao-inner {
   max-width: 1300px;
@@ -438,35 +443,16 @@ header {
   gap: 230px;                  /* MUDAR AQUI SE QUISER AUMENTAR A DISTANCIA ENTRE AS SEÇÕES DA LOJA E DO BAZAR... */
 }
 
-/* === LINHA 1: CARROSSEL + NOSSA LOJA === */
+/* === LINHA 1: CARROSSEL === */
 
 .linha-loja {
   display: flex;
   align-items: center;
   gap: 80px;
 }
+
 .loja-carrossel-col {
   flex: 1;
-}
-.loja-texto-col {
-  flex: 1;
-  text-align: right;
-}
-.loja-titulo {
-  font-size: clamp(52px, 8vw, 110px);
-  font-weight: 800;
-  line-height: 0.85;
-  letter-spacing: -5px;
-  margin-bottom: 30px;
-  color: #fff;
-}
-.loja-titulo span {
-  color: #ff5757;
-}
-.loja-descricao {
-  font-size: clamp(16px, 1.5vw, 22px);
-  line-height: 1.4;
-  font-weight: 500;
 }
 
 .btn-loja {
@@ -494,44 +480,6 @@ header {
   transition: all 0.1s;
 }
 
-/* === LINHA 2: CATEGORIAS + DOE PARA O BAZAR === */
-.linha-bazar {
-  display: flex;
-  align-items: center;
-  gap: 80px;
-}
-.categorias-lista-col {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.categoria-item {
-  position: relative;
-  width: 100%;
-  height: 120px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 3px solid #111;
-  box-shadow: 6px 6px 0px #111;
-}
-.categoria-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.6);
-}
-.categoria-item span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 45px;
-  font-weight: 800;
-  text-transform: lowercase;
-  letter-spacing: -2px;
-  color: #fff;
-}
 .doacao-info-col {
   flex: 1;
   text-align: right;
@@ -590,6 +538,7 @@ header {
   position: relative;
   width: 100%;
   height: 380px;
+  z-index: 5;
 }
 .bazar-carousel-viewport {
   width: 100%;
@@ -650,7 +599,8 @@ header {
   font-size: 28px;
   font-weight: 700;
   cursor: pointer;
-  z-index: 2;
+  z-index: 20;
+  pointer-events: auto;
   box-shadow: 4px 4px 0 #111;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
@@ -672,7 +622,7 @@ header {
     flex-direction: column;
     gap: 40px;
   }
-  .loja-texto-col,
+
   .doacao-info-col {
     text-align: center;
   }
@@ -690,6 +640,135 @@ header {
   .bazar-slide span { font-size: 36px; }
   .categoria-item span { font-size: 32px; }
   .doacao-titulo { font-size: 52px; }
+}
+
+
+/* ========== VOLUNTARIADO ========== */
+#VOLUNTARIO-SECAO {
+    width: 100%;
+    min-height: 550px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 60px 8%; 
+    box-sizing: border-box;
+    gap: 40px; 
+}
+
+.Voluntario-section {
+    max-width: 550px; 
+    text-align: left; 
+    color: #ffffff; 
+    margin-left: -80px;
+}
+
+.Voluntario-section h2 {
+  font-size: clamp(50px, 6vw, 80px);
+  line-height: 0.95;
+  font-weight: 800;
+  margin-bottom: 40px;
+  letter-spacing: -4px;
+}
+
+.Voluntario-section h2 span {
+  color: #ff00bb;
+}
+
+.Voluntario-section .voluntariado-subtitulo {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 25px;
+}
+
+.Voluntario-section p:not(.voluntariado-subtitulo) {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 45px;
+  opacity: 0.9;
+}
+
+.Voluntario-section p span {
+    color: #ff00bb; 
+    font-weight: 700; 
+}
+
+.photocard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 60px;
+}
+
+.photocard {
+  width: 280px;
+  background-color: #ffffff;
+  padding: 16px 16px 32px 16px;
+  border-radius: 4px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.photocard-sala {
+  transform: rotate(3deg);
+  z-index: 2;
+}
+
+.photocard-sala:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.photocard-pessoas {
+  transform: rotate(-4deg);
+  margin-top: -35px;
+  margin-left: 70px;
+  z-index: 1;
+}
+
+.photocard-pessoas:hover {
+  transform: rotate(0deg) scale(1.03);
+  z-index: 3;
+}
+
+.photocard-foto {
+  width: 100%;
+  aspect-ratio: 1 / 1.1;
+  overflow: hidden;
+  background-color: #e0e0e0;
+}
+
+.photocard-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-voluntario {
+  display: inline-block;
+  background-color: #fdf5e6;
+  color: #111;
+  text-decoration: none;
+  padding: 18px 45px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 18px;
+  border: 3px solid #111;
+  box-shadow: 5px 5px 0px #111;
+  transition: all 0.2s ease;
+}
+
+.btn-voluntario:hover {
+  transform: scale(1.05);
+  background-color: #ff00bb;
+  color: #fff;
+}
+
+.btn-voluntario:active {
+  transform: translate(3px, 3px) scale(1.02);
+  box-shadow: 2px 2px 0px #111;
+  transition: all 0.1s;
 }
 
 
@@ -843,6 +922,19 @@ footer {
   .doacao-titulo {
     font-size: 72px;
   }
+
+  /* VOLUNTARIADO */
+#VOLUNTARIO-SECAO {
+  gap: 60px;
+}
+
+.Voluntario-section h2 {
+  font-size: 68px;
+}
+
+.photocard {
+  width: 250px;
+}
 
   /* QUINTA SEÇÃO */
   .ajudar-titulo {
@@ -1018,6 +1110,42 @@ footer {
   .categoria-item span {
     font-size: 40px;
   }
+
+  /* VOLUNTARIADO */
+#VOLUNTARIO-SECAO {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 60px;
+  padding: 60px 6%;
+}
+
+.Voluntario-section {
+  max-width: 100%;
+  text-align: center;
+  margin-left: 0;
+}
+
+.Voluntario-section h2 {
+  font-size: 60px;
+  letter-spacing: -2px;
+}
+
+.Voluntario-section .voluntariado-subtitulo {
+  font-size: 21px;
+}
+
+.Voluntario-section p:not(.voluntariado-subtitulo) {
+  font-size: 17px;
+}
+
+.photocard-container {
+  margin-top: 0;
+}
+
+.btn-voluntario {
+  margin-top: 10px;
+}
 
   /* QUINTA SEÇÃO */
   .ajudar-titulo {
@@ -1202,6 +1330,61 @@ footer {
     font-size: 16px;
   }
 
+  .bazar-carousel-btn-prev {
+    left: 10px;
+  }
+
+  .bazar-carousel-btn-next {
+    right: 10px;
+  }
+
+  .bazar-carousel-btn {
+    z-index: 30;
+    pointer-events: auto;
+  }
+
+  .bazar-carousel-btn {
+    display: none;
+  }
+
+  /* VOLUNTARIADO */
+#VOLUNTARIO-SECAO {
+  padding: 40px 5%;
+  gap: 45px;
+}
+
+.Voluntario-section h2 {
+  font-size: 44px;
+  letter-spacing: -2px;
+  margin-bottom: 28px;
+}
+
+.Voluntario-section .voluntariado-subtitulo {
+  font-size: 17px;
+}
+
+.Voluntario-section p:not(.voluntariado-subtitulo) {
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.btn-voluntario {
+  padding: 14px 32px;
+  font-size: 15px;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.photocard {
+  width: 220px;
+}
+
+.photocard-pessoas {
+  margin-top: -25px;
+  margin-left: 45px;
+}
+
   /* QUINTA SEÇÃO */
   .ajudar-section {
     padding: 40px 5%;
@@ -1291,4 +1474,20 @@ footer {
     width: 180px;
     height: 180px;
   }
+
+  /* VOLUNTARIADO */
+.Voluntario-section h2 {
+  font-size: 36px;
+}
+
+.photocard {
+  width: 190px;
+}
+
+.photocard-pessoas {
+  margin-left: 28px;
+}
+
+
+
 }

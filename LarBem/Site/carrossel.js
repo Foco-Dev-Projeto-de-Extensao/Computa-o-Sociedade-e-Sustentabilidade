@@ -34,6 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
   var currentIndex = 0;
   var autoPlayId = null;
 
+  var touchStartX = 0;
+  var touchEndX = 0;
+
   function goToSlide(index) {
     currentIndex = (index + slides.length) % slides.length;
     track.style.transform = "translateX(-" + currentIndex * 100 + "%)";
@@ -63,11 +66,28 @@ document.addEventListener("DOMContentLoaded", function () {
     startAutoPlay();
   });
 
+  track.addEventListener("touchstart", function (event) {
+    touchStartX = event.touches[0].clientX;
+    stopAutoPlay();
+  });
+
+  track.addEventListener("touchend", function (event) {
+    touchEndX = event.changedTouches[0].clientX;
+
+    if (touchStartX - touchEndX > 50) {
+      goToSlide(currentIndex + 1);
+    }
+
+    if (touchEndX - touchStartX > 50) {
+      goToSlide(currentIndex - 1);
+    }
+
+    startAutoPlay();
+  });
+
   carousel.addEventListener("mouseenter", stopAutoPlay);
   carousel.addEventListener("mouseleave", startAutoPlay);
 
   goToSlide(0);
   startAutoPlay();
 });
-
-

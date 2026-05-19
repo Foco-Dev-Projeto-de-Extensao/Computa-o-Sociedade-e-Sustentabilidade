@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
   <header> <!-- ----- CABEÇALHO INICIAL ------------->
   <nav class="nav">
     <a href="#SEGUNDA-SECAO">Sobre Nós</a>
-    <a href="#TERCEIRA-SECAO">Nossos Serviços</a>
     <a href="#QUARTA-SECAO">Nosso brechó</a>
+    <a href="#VOLUNTARIO-SECAO">Seja um Voltuntário</a>
     <a href="#QUINTA-SECAO">Seja um doador</a>
     <a href="#SEXTA-SECAO">Contatos</a>
   </nav>
@@ -282,60 +282,68 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
 
-      <div class="loja-texto-col">
-        <h1 class="loja-titulo">Nossa Loja<span>.</span></h1>
-        <p class="loja-descricao">
-          Também contamos com um brechó solidário, onde itens doados são vendidos
-          para apoiar e fortalecer nossos projetos sociais.
-        </p>
-        <a href="bazar.html" class="btn-loja">ACESSO À LOJA</a>
-      </div>
+  <div class="linha-bazar">
+    <div class="doacao-info-col">
+      <h2 class="doacao-titulo"><span>Doe</span> para<br>o Bazar!</h2>
+      <p class="doacao-subtitulo">
+        Contribua com roupas em bom estado para o nosso bazar solidário.
+      </p>
+      <p class="doacao-texto">
+        Escolha os itens que não utiliza mais, garantindo que estejam limpos,
+        conservados e em condições de uso, e entre em contato conosco para realizar a doação.
+      </p>
+      <a href="https://wa.me/558132250151?text=Ol%C3%A1%2C+gostaria+de+fazer+uma+doa%C3%A7%C3%A3o+para+o+bazar+do+Lar+Bem!" target="_blank" rel="noopener noreferrer" class="btn-doacao">Faça sua Doação</a>
+  </div>
     </div>
-
     <script src="carrossel.js"></script>
 
-    <!-- LINHA 2: Lista categorias (esq) + Doe para o Bazar (dir) -->
-<div class="linha-bazar">
 
-  <div class="categorias-lista-col">  
-    
-    <div class="categoria-item" onclick="window.location='bazar.html?cat=roupas'" style="cursor:pointer;">
-      <img src="imagens/ITENS/roupa.jpg" alt="Roupas">
-      <span>roupas</span>
-    </div>
-       
-    <div class="categoria-item" onclick="window.location='bazar.html?cat=calçados'" style="cursor:pointer;">
-      <img src="imagens/ITENS/tenis.jpg" alt="Calçados">
-      <span>calçados</span>
-    </div>
+</section>
 
-    <div class="categoria-item" onclick="window.location='bazar.html?cat=acessórios'" style="cursor:pointer;">
-      <img src="imagens/ITENS/acessorio.jpg" alt="Acessórios">
-      <span>acessórios</span>
-    </div>
+  <div id="VOLUNTARIO-SECAO">
 
-    <div class="categoria-item" onclick="window.location='bazar.html?cat=brinquedos'" style="cursor:pointer;">
-      <img src="imagens/ITENS/brinquedo.jpg" alt="Brinquedos">
-      <span>brinquedos</span>
-    </div>
 
+    <section class="Voluntario-section">
+      <h2><span>Faça Parte</span> da Nossa História!</h2>
+      <p class="voluntariado-subtitulo">
+        No Larbem, acreditamos que o amor e o cuidado transformam realidades.</p>
+
+      <p> Cada atividade, sorriso e acolhimento no Larbem acontece graças a pessoas que dedicam seu tempo para <span>transformar 
+        vidas.</span> Ser voluntário é fazer parte de uma rede de afeto que constrói um futuro melhor, onde o mais importante não 
+        é a profissão ou o tempo disponível, mas a vontade de <span>fazer a diferença.</span></span></p>
+
+        <a href="https://LINK-AQUIIIIIIIIIIIIIIIII" target="_blank" 
+        rel="noopener noreferrer" class="btn-voluntario"> Quero ser Voluntário</a>
+
+
+
+    </section>
+
+    <!-- Coluna da Direita: Photocards -->
+<div class="photocard-container">
+  <div class="photocard photocard-sala">
+    <div class="photocard-foto">
+      <img src="imagens/ITENS/sala-larbem.jpg" alt="Foto da sala">
+    </div>
   </div>
 
-
-  <div class="doacao-info-col">
-    <h2 class="doacao-titulo"><span>Doe</span> para<br>o Bazar!</h2>
-    <p class="doacao-subtitulo">
-      Contribua com roupas em bom estado para o nosso bazar solidário.
-    </p>
-    <p class="doacao-texto">
-      Escolha os itens que não utiliza mais, garantindo que estejam limpos,
-      conservados e em condições de uso, e entre em contato conosco para realizar a doação.
-    </p>
-    <a href="https://wa.me/558132250151?text=Ol%C3%A1%2C+gostaria+de+fazer+uma+doa%C3%A7%C3%A3o+para+o+bazar+do+Lar+Bem!" target="_blank" rel="noopener noreferrer" class="btn-doacao">Faça sua Doação</a>
+  <div class="photocard photocard-pessoas">
+    <div class="photocard-foto">
+      <img src="imagens/ITENS/pessoas-larbem.jpg" alt="Foto de pessoas no Larbem">
+    </div>
   </div>
+</div>
+
+
 
 </div>
-</section>
+
+
+  </div>
+
+
+
+
 
 </div>
 
@@ -818,17 +826,16 @@ function copiarCNPJ() {
       }
     });
   </script>
-
   
 
   <script src="carrossel.js"></script>
   <script src="index.js"></script>
   <script type="module" src="firebase.js"></script>
 
-
   
   <div class="footer-final">
     <footer>
+      
       <p>Desenvolvido por <a href="https://www.linkedin.com/in/amanda-aziz-30a30p/">Amanda Aziz</a> e <a href="https://www.linkedin.com/in/mozart-moura/">Mozart Moura</a></p>
       <p>&copy; 2026 Instituição Lar Bem – Todos os direitos reservados</p>
     </footer>
