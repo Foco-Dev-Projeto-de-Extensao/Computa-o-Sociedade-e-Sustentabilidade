@@ -16,8 +16,7 @@ body {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-  background-image: url("imagens/FUNDOS/fundo6.png"); /* Alterado para fundo6 */
-  background-repeat: no-repeat;
+  background-image: url("../assests/imagens/FUNDOS/fundo6.png");
   background-size: cover;
   background-position: center center;
   background-attachment: fixed; 
@@ -427,7 +426,7 @@ header {
 #QUARTA-SECAO{
   padding: 80px 10%;
   color: #fff;
-  background: url(imagens/FUNDOS/fundo4.png);
+  background: url("../assests/imagens/FUNDOS/fundo4.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
