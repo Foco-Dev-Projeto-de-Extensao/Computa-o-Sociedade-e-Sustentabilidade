@@ -1,11 +1,11 @@
-> Este projeto é um software livre sob a licença **GNU GPLv3**.
-
 ## UNIVERSIDADE CATÓLICA DE PERNAMBUCO - CC
 
 # 🌍 Computação, Sociedade e Sustentabilidade
 
 > **Projeto de Extensão Universitária**  
 > Unindo tecnologia e impacto social para fortalecer instituições locais através de soluções digitais e estratégias de captação.
+
+> Este projeto é um software livre sob a licença **GNU GPLv3**.
 
 ## 🏷️ DADOS DOS DISCENTES
 | MATRÍCULA | NOME E SOBRENOME | GITHUB | PERFIS |
